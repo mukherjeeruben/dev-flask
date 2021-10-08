@@ -1,5 +1,5 @@
 web: gunicorn gettingstarted.wsgi
-web: gunicorn main:app --preload
+web: gunicorn app:app --preload
 
 
 
