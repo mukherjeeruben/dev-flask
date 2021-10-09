@@ -3,9 +3,9 @@ from flask_restx import Api, Resource
 import config
 from dal.data_fetch import data_fetch_from_api
 
-flask_app = Flask(__name__)
+app = Flask(__name__)
 
-api = Api(flask_app)
+api = Api(app)
 
 name_space = api.namespace('main', description='Main APIs')
 
@@ -18,4 +18,4 @@ class DatafetchClass(Resource):
 
 
 if __name__ == '__main__':
-    flask_app.run(debug=config.DEBUG)
+    app.run(debug=config.DEBUG)
