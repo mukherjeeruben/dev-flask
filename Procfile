@@ -1,5 +1,5 @@
 web: gunicorn gettingstarted.wsgi
-web: gunicorn app:flask_app --preload
+web: gunicorn api_startup:flask_app --preload
 
 
 
