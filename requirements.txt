@@ -2,3 +2,4 @@ Flask==2.0.2
 flask_restx==0.5.1
 gunicorn
 flask-cors
+PyJWT

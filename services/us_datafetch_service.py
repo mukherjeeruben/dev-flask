@@ -1,10 +1,14 @@
 from flask_restx import Resource
 from models.us_datafetch_model import api
 from bl.us_datafetch_bl import api_datafetch_factoring
+from bl.jwt_auth import token_required
+import config
+import jwt
 
 
 @api.route('/jobsbyindustry')
 class dummy(Resource):
+    # @token_required
     @api.doc(response={200: 'Success', 400: 'Validation Error'})
     # @api.marshal_with(dummy_fields)
     @api.response('default', 'Error')
