@@ -36,3 +36,8 @@ def token_required(input_func):
 
         return input_func(*args, **kwargs)
     return decorator
+
+
+def get_user_info(token):
+    token_details = jwt.decode(token, config.Secret_key, algorithms='HS256')
+    return token_details['user_details']

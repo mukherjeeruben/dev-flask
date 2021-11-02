@@ -1,7 +1,6 @@
 from flask_restx import Namespace, reqparse, fields, inputs
 from werkzeug.datastructures import FileStorage
 
-
 api = Namespace('USDataFetch', description='Open data from data.ny.gov')
 
 
