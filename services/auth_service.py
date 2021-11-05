@@ -1,6 +1,6 @@
 from flask_restx import Resource
 from flask import request, jsonify
-from bl.jwt_auth import create_token
+from bl.jwt_auth import create_token, get_user_details
 import config
 from models.auth_model import api, token_info
 
@@ -20,6 +20,7 @@ class GenerateJwtKey(Resource):
         if incoming_key != config.Secret_key:
             return 'You are not authorized'
 
+        user_details_db = get_user_details() # TODO Check
         user_details = [user_data for user_data in config.user_details if user_data['email'] == request.headers['Registered_Email_id']]
         if len(user_details) == 0:
             return 'User not registered. Contact Administrator.'

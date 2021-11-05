@@ -3,6 +3,7 @@ import config
 import jwt
 from datetime import datetime, timedelta
 from functools import wraps
+from dal.auth_db_data import get_user_details_from_db
 import json
 
 
@@ -41,3 +42,8 @@ def token_required(input_func):
 def get_user_info(token):
     token_details = jwt.decode(token, config.Secret_key, algorithms='HS256')
     return token_details['user_details']
+
+
+def get_user_details():
+    raw_user_data = get_user_details_from_db()
+    return raw_user_data
