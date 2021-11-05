@@ -20,7 +20,7 @@ class GenerateJwtKey(Resource):
         if incoming_key != config.Secret_key:
             return 'You are not authorized'
 
-        user_details_db = get_user_details() # TODO Check
+        user_details_db = get_user_details() # TODO Check Code Incomplete
         user_details = [user_data for user_data in config.user_details if user_data['email'] == request.headers['Registered_Email_id']]
         if len(user_details) == 0:
             return 'User not registered. Contact Administrator.'
