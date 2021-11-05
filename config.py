@@ -11,5 +11,3 @@ POSTGRESQL_USER = "ngpqkaztjfrdbb"
 POSTGRESQL_PASSWORD = "15ca64008a665ad4ed82d5c7c7dbb972e01838aac317b78916f049392612ae3f"
 
 DROPBOX_ACCESSTOKEN = '''BcLP0_8_U1wAAAAAAAAAAQ7O3FT0yX2hXr7_bfZbihdFStufiRucNMUfFFAjSyTd'''
-
-user_details =[{'name': 'Ruben Mukherjee', 'email': 'rubenmukherjee@outlook.com', 'role': 'Admin'}]

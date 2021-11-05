@@ -8,14 +8,16 @@ def execute_query(query, query_params=None):
         with create_connection() as conn:
             cursor = conn.execute(query)
             logging.info('Query Executed')
-            # for get query
-            result_set = cursor.fetchall()
-            ## columns = cursor.description # TODO Check
+
+            # for 'GET' query
+            columns = list(map(lambda x: x[0], cursor.cursor.description))
+            row_vaules = cursor.fetchall()
+            result_set = [dict(zip(columns, row)) for row in row_vaules]
+            # for 'POST/PUT/DELETE' query
+
+            ##TODO CODE PENDING
+
             return result_set
     except Exception as exp_msg:
         logging.error("Error in Query Execution: " + str(exp_msg))
 
-
-
-# fields = map(lambda x:x[0], cursor.description)
-# result = [dict(zip(fields,row))   for row in cursor.fetchall()]
