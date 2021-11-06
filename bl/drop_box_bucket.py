@@ -2,18 +2,6 @@ from dropbox.files import WriteMode
 from connection.dropbox_con import create_bucket_connection
 
 
-def get_file_list():
-    try:
-        '''File List for in Folder Apps/heroku_dev_app'''
-        dbx_conn = create_bucket_connection()
-        file_list = list()
-        for entry in dbx_conn.files_list_folder('').entries:
-            file_list.append(entry.name)
-        return file_list
-    except Exception as drp_err:
-        print(drp_err)
-
-
 def upload_file(fileobject):
     try:
         '''File Upload to in Folder Apps/heroku_dev_app'''

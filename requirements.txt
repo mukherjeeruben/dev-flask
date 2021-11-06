@@ -5,4 +5,5 @@ flask-cors
 PyJWT
 sqlalchemy
 psycopg2
+sqlparse
 dropbox
