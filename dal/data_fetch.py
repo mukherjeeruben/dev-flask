@@ -1,8 +1,7 @@
-import urllib.request, json
+from interface.query_execution import execute_query
 
 
-def data_fetch_from_api(external_url):
-    with urllib.request.urlopen(external_url) as url:
-        api_raw_data = json.loads(url.read().decode('utf-8'))
-        list_data = api_raw_data['data']
-        return list_data
+def get_all_image_data():
+    query = '''SELECT embeddings_vector, image_url FROM "DEV".table_image_master WHERE embeddings_vector IS NOT NULL '''
+    result = execute_query(query=query)
+    return result

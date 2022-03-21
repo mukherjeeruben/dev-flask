@@ -7,3 +7,5 @@ sqlalchemy
 psycopg2
 sqlparse
 dropbox
+sentence_transformers==2.2.0
+numpy
