@@ -7,3 +7,4 @@ sqlalchemy
 psycopg2
 sqlparse
 dropbox
+flask-caching

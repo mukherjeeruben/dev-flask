@@ -2,7 +2,7 @@ from flask_restx import Resource
 from models.storage_model import api, FILE_UPLOAD, file_download_fields
 from bl.jwt_auth import token_required
 from bl.drop_box_bucket import upload_file, download_file, get_file_list
-
+from interface.cache import cache
 
 @api.route('/uplaodfile')
 class UplaodFileClass(Resource):
@@ -30,6 +30,8 @@ class DownloadFileClass(Resource):
         response = download_file(filename=payload['FileName'])
         return response
 
+
+@cache.memoize(timeout=300)
 @api.route('/getfilelist')
 class FetchFileListClass(Resource):
     @token_required
