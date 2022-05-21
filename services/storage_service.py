@@ -34,12 +34,13 @@ class DownloadFileClass(Resource):
 
 @api.route('/getfilelist')
 class FetchFileListClass(Resource):
-    @cache.memoize(timeout=300)
     @token_required
     @api.doc(response={200: 'Success', 400: 'Validation Error'}, security='apikey')
     @api.response('default', 'Error')
+    @cache.memoize(timeout=300)
     def get(self):
         '''Get File List from dropbox'''
         response = get_file_list()
+        print('Hello')
         return response
 
