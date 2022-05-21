@@ -23,7 +23,7 @@ CORS(flask_app)
 API = Api(flask_app, authorizations=AUTH)
 
 ###########Caching##################
-CACHE_CONFIG = {'CACHE_TYPE': 'simple',
+CACHE_CONFIG = {'CACHE_TYPE': 'SimpleCache',
                 'CACHE_DEFAULT_TIMEOUT': 600}
 cache.init_app(flask_app, CACHE_CONFIG)
 ####################################

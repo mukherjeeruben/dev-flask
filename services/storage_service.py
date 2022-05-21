@@ -4,6 +4,7 @@ from bl.jwt_auth import token_required
 from bl.drop_box_bucket import upload_file, download_file, get_file_list
 from interface.cache import cache
 
+
 @api.route('/uplaodfile')
 class UplaodFileClass(Resource):
     @token_required
@@ -31,9 +32,9 @@ class DownloadFileClass(Resource):
         return response
 
 
-@cache.memoize(timeout=300)
 @api.route('/getfilelist')
 class FetchFileListClass(Resource):
+    @cache.memoize(timeout=300)
     @token_required
     @api.doc(response={200: 'Success', 400: 'Validation Error'}, security='apikey')
     @api.response('default', 'Error')
